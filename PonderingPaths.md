@@ -25,6 +25,7 @@ This challenge helped me to learn how to access different programs under / and a
 
 No reference used
 
+****************
 
 ## Programs and Absolute Paths
 
@@ -50,6 +51,7 @@ In this challenge we learnt how to access files that are under a directory that 
 
 No references used
 
+****************
 
 ## Position thy self
 
@@ -81,6 +83,7 @@ I learnt how to change directories using the cd command.
 
 No references used.
 
+****************
 
 ## Position elsewhere
 
@@ -112,6 +115,7 @@ I learnt how to change directories using the cd command and accessing directorie
 
 No references used.
 
+****************
 
 ## Positon yet elsewhere
 
@@ -143,6 +147,8 @@ I learnt how to change directories using the cd command and accessing directorie
 
 No references used.
 
+****************
+
 ## implicit relative paths, from /
 
 Accessing files from a relative path.
@@ -168,6 +174,33 @@ I learnt about relative paths and how to execute them. I also learnt about curre
 ### References
 
 No references used.
+****************
+
+## explicit relative paths, from /
+
+Referering to the current directory using '.' .
+
+### Solve 
+**Flag** `pwn.college{Ilgh9b_LlNjbMVQ18z7I7ZXbgx0.QX5QTN0wCNwAzNzEzW}`
+
+Using the '.' we can refer to  the current directory. Using absolute path just gives us the path relative to the current directory. So I used '.' to refer the current directory and the absolute path to find the flag.
+
+```bash
+hacker@paths~explicit-relative-paths-from-:~$ cd /
+hacker@paths~explicit-relative-paths-from-:/$ ././challenge/run
+Correct!!!
+././challenge/run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{ox9J4FX1X__m4WsszyzGyg-U0bJ.QXwUTN0wCNwAzNzEzW}
+```
+
+### New Learnings
+
+I learnt that '.' refers to the current directory.
+
+### References
+
+No reference used.
 
 
 
