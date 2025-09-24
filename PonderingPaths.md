@@ -26,5 +26,31 @@ This challenge helped me to learn how to access different programs under / and a
 No reference used
 
 
-## 
+## Programs and Absolute Paths
+
+Accessing a program that is under a directory that is under the / directory
+
+### Solve
+
+**Flag:** `pwn.college{kiJ8h_GKiYV3EKso8olRW6JlF10.QX1QTN0wCNwAzNzEzW}`
+
+To access the run file I first need to access the challenge directory that is under the / directory. So my command basically goes to the challenge directory and the to the run 
+
+```bash
+file.Correct!!!
+/challenge/run is an absolute path! Here is your flag:
+pwn.college{kiJ8h_GKiYV3EKso8olRW6JlF10.QX1QTN0wCNwAzNzEzW}
+```
+
+### New learnings
+
+In this challenge we learnt how to access files that are under a directory that is under / using absolute path.
+
+### References 
+
+No references used
+
+
+##
+
 
