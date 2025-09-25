@@ -202,6 +202,40 @@ I learnt that '.' refers to the current directory.
 
 No reference used.
 
+****************
+
+## implicit relative path
+
+Referering to the current directory using '.' .
+
+### Solve 
+**Flag** `pwn.college{EGzY6FvKsvy9jbIBRQt-iCV-efz.QXxUTN0wCNwAzNzEzW}`
+
+Using /challenge to go to the 'challenge' directory. Using '.' to refer to the current directory and an absolute path to finally run the files in the 'run' directory.
+
+```bash
+hacker@paths~implicit-relative-path:~$ cd /challenge
+hacker@paths~implicit-relative-path:/challenge$ ./run
+Correct!!!
+./run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{EGzY6FvKsvy9jbIBRQt-iCV-efz.QXxUTN0wCNwAzNzEzW}
+```
+
+### New Learnings
+
+I learnt that Linux avoids automatically looking in the current directory when on providing a naked path. So we refer to the current directory and then execute the files in it.
+
+### References
+
+No reference used.
+
+****************
+
+
+
+
+
 
 
 
