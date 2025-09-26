@@ -233,6 +233,31 @@ No reference used.
 ****************
 
 
+## home sweet home
+
+learning about home directory
+
+### Solve
+**Flag** `pwn.college{kJ6bVuesgwPj5HkvTUajGE2DPzN.QXzMDO0wCNwAzNzEzW}`
+
+Using the ~ prompt to expand in home directory. Then expanding the opens the file a in the / directory as the challenge required the diretory to be 3 or less letters and also an absolute path.
+
+```bash
+hacker@paths~home-sweet-home:~$ /challenge/run ~/a
+Writing the file to /home/hacker/a!
+... and reading it back to you:
+pwn.college{kJ6bVuesgwPj5HkvTUajGE2DPzN.QXzMDO0wCNwAzNzEzW}
+```
+
+### New learnings
+
+The ~ command expands your home directory. It is only written at the start followed by some argument.
+
+### References
+
+No reference used.
+
+
 
 
 
