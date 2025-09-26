@@ -429,7 +429,194 @@ No refernece used.
 
 *******
 
-## 
+## Moving files
+
+Moves the files from one directory to other
+
+### Solve
+**Flag** `pwn.college{EEHptiu44msoUTTxYDzY-McwxnC.0VOxEzNxwCNwAzNzEzW}`
+
+I used the mv command to move the /flag file to the given directory.
+
+```bash
+hacker@commands~moving-files:~$ mv /flag /tmp/hack-the-planet
+Correct! Performing 'mv /flag /tmp/hack-the-planet'.
+hacker@commands~moving-files:~$ /challenge/check
+Congrats! You successfully moved the flag to /tmp/hack-the-planet! Here it is:
+pwn.college{EEHptiu44msoUTTxYDzY-McwxnC.0VOxEzNxwCNwAzNzEzW}
+```
+
+### New Learnings 
+
+I learnt how to move files using the mv command.
+
+### References
+
+No reference used.
+*******
+
+## hidden files
+
+Finding files that are not visible using the ls command.
+
+### Solve
+**Flag:** `pwn.college{4_S5qG60rnHQ-Ycj0lWewpZIxZq.QXwUDO0wCNwAzNzEzW}`
+
+I first moved into the / directory using the cd command. Then I used the ls -a command to find see all the files including the ones starting with a '.'. Then I tried to run the file directly but I was denied access. So I used the cat command to read inside the file and found the flag. 
+
+```bash
+hacker@commands~hidden-files:~$ cd /
+hacker@commands~hidden-files:/$ ls -a
+.                      bin        etc    lib64   nix   run   tmp
+..                     boot       home   libx32  opt   sbin  usr
+.dockerenv             challenge  lib    media   proc  srv   var
+.flag-201452146727600  dev        lib32  mnt     root  sys
+hacker@commands~hidden-files:/$ /.flag-201452146727600
+bash: /.flag-201452146727600: Permission denied
+hacker@commands~hidden-files:/$ cat /.flag-201452146727600
+pwn.college{4_S5qG60rnHQ-Ycj0lWewpZIxZq.QXwUDO0wCNwAzNzEzW}
+```
+
+### New learnings
+
+I learnt how to see files that are hidden because they start with a '.' using the ls -a command.
+
+### References
+No reference used.
+
+## An epic filesystem quest
+
+Finding the flag by following the given instruction.
+
+### Solve 
+**Flag** `pwn.college{YCAECYIX3kJfL6y7bsQoBRCUod-.QX5IDO0wCNwAzNzEzW}`
+
+I used the cd command to navigate to different directories. I then used the ls or ls -a to view the files in the directories. I then used the cat command to read the files and go to the next durectory. There were some hints that required me to use ls -a and cat directly followed by the absolute path. I finally found the flag after following all the rules. 
+
+```bash
+hacker@commands~an-epic-filesystem-quest:~$ cd /
+hacker@commands~an-epic-filesystem-quest:/$ ls
+MESSAGE  challenge  flag  lib32   media  opt   run   sys  var
+bin      dev        home  lib64   mnt    proc  sbin  tmp
+boot     etc        lib   libx32  nix    root  srv   usr
+hacker@commands~an-epic-filesystem-quest:/$ cat MESSAGE
+Lucky listing!
+The next clue is in: /usr/local/lib/python3.8/dist-packages/jupyter_server/view
+hacker@commands~an-epic-filesystem-quest:/$ cd /usr/local/lib/python3.8/dist
+-packages/jupyter_server/view
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/jupyter_server/view$ ls
+DISPATCH  __init__.py  __pycache__  handlers.py
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/jupyter_server/view$ cat DISPATCH
+Lucky listing!
+The next clue is in: /opt/linux/linux-5.4/include/crypto/internal
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/jupyter_server/view$ cd /opt/linux/linux-5.4/include/crypto/internal
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/include/crypto/internal$ ls
+NOTE         akcipher.h    geniv.h  rng.h        simd.h
+acompress.h  cryptouser.h  hash.h   rsa.h        skcipher.h
+aead.h       des.h         kpp.h    scompress.h
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/include/crypto/internal$ cat NOTE
+Congratulations, you found the clue!
+The next clue is in: /usr/local/lib/python3.8/dist-packages/Crypto/SelfTest/__pycache__
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/include/crypto/internal$ ls /usr/local/lib/python3.8/dist-packages/Crypto/SelfTest/__pycache__
+CLUE-TRAPPED             __main__.cpython-38.pyc  st_common.cpython-38.pyc
+__init__.cpython-38.pyc  loader.cpython-38.pyc
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/include/crypto/internal$ cat /usr/local/lib/python3.8/dist-packages/Crypto/SelfTest/__pycache__/CLUE-TRAPPED
+Yahaha, you found me!
+The next clue is in: /usr/lib/python3/dist-packages/matplotlib/testing/__pycache__
+
+The next clue is **hidden** --- its filename starts with a '.' character. You'll need to look for it using special options to 'ls'.
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/include/crypto/internal$ ls -a /usr/lib/python3/dist-packages/matplotlib/testing/__pycache__
+.                        conftest.cpython-38.pyc
+..                       decorators.cpython-38.pyc
+.TRACE                   determinism.cpython-38.pyc
+__init__.cpython-38.pyc  disable_internet.cpython-38.pyc
+compare.cpython-38.pyc   exceptions.cpython-38.pyc
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/include/crypto/internal$ cat  /usr/lib/python3/dist-packages/matplotlib/testing/__pycache__/.TRACE
+Great sleuthing!
+The next clue is in: /opt/linux/linux-5.4/drivers/gpu/drm/amd/display/dc/virtual
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/include/crypto/internal$ cd /opt/linux/linux-5.4/drivers/gpu/drm/amd/display/dc/virtual
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/drivers/gpu/drm/amd/display/dc/virtual$ ls
+GIST      virtual_link_encoder.c  virtual_stream_encoder.c
+Makefile  virtual_link_encoder.h  virtual_stream_encoder.h
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/drivers/gpu/drm/amd/display/dc/virtual$ cat GIST
+Congratulations, you found the clue!
+The next clue is in: /usr/share/racket/pkgs/games/paint-by-numbers/raw-problems/compiled
+
+The next clue is **hidden** --- its filename starts with a '.' character. You'll need to look for it using special options to 'ls'.
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/drivers/gpu/drm/amd/display/dc/virtual$ ls -a  /usr/share/racket/pkgs/games/paint-by-numbers/raw-problems/compiled
+.                            raw-hattori_rkt.dep
+..                           raw-hattori_rkt.zo
+.POINTER                     raw-kajitani_rkt.dep
+build-final_rkt.dep          raw-kajitani_rkt.zo
+build-final_rkt.zo           raw-misc_rkt.dep
+build-hattori_rkt.dep        raw-misc_rkt.zo
+build-hattori_rkt.zo         raw-problems_rkt.dep
+build-rows-cols_rkt.dep      raw-problems_rkt.zo
+build-rows-cols_rkt.zo       size-calculation_rkt.dep
+build-solution-sets_rkt.dep  size-calculation_rkt.zo
+build-solution-sets_rkt.zo
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/drivers/gpu/drm/amd/display/dc/virtual$ cat  /usr/share/racket/pkgs/games/paint-by-numbers/raw-problems/compiled/.POINTER
+Congratulations, you found the clue!
+The next clue is in: /usr/share/locale/io/LC_MESSAGES
+
+The next clue is **delayed** --- it will not become readable until you enter the directory with 'cd'.
+hacker@commands~an-epic-filesystem-quest:/opt/linux/linux-5.4/drivers/gpu/drm/amd/display/dc/virtual$ cd /usr/share/locale/io/LC_MESSAGES
+hacker@commands~an-epic-filesystem-quest:/usr/share/locale/io/LC_MESSAGES$ ls
+EVIDENCE  iso_3166-1.mo  iso_3166.mo
+hacker@commands~an-epic-filesystem-quest:/usr/share/locale/io/LC_MESSAGES$ cat EVIDENCE
+Lucky listing!
+The next clue is in: /usr/share/doc/libpcrecpp0v5
+
+The next clue is **delayed** --- it will not become readable until you enter the directory with 'cd'.
+hacker@commands~an-epic-filesystem-quest:/usr/share/locale/io/LC_MESSAGES$ cd /usr/share/doc/libpcrecpp0v5
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/libpcrecpp0v5$ ls
+AUTHORS  DOSSIER  NEWS.gz  README.gz  changelog.Debian.gz  copyright
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/libpcrecpp0v5$ cat DOSSIER
+CONGRATULATIONS! Your perserverence has paid off, and you have found the flag!
+It is: pwn.college{YCAECYIX3kJfL6y7bsQoBRCUod-.QX5IDO0wCNwAzNzEzW}
+```
+### New Leearnings
+
+I learnt how to effectively use cd, cat and ls commands.
+
+### References
+No references used.
+***************
+
+## making directories
+
+Using mkdir to makae new directories/
+
+### Solve
+**Flag:** `pwn.college{k3nSyrPXYQs5_3OUtI0gVUT2HpT.QXxMDO0wCNwAzNzEzW}`
+
+First I made a directory in tmp using mkdir command. Then I made a file using touch inside the directory. 
+
+```bash
+hacker@commands~making-directories:~$ mkdir /tmp/pwn
+hacker@commands~making-directories:~$ touch /tmp/pwn/college
+hacker@commands~making-directories:~$ /challenge/run
+Success! Here is your flag:
+pwn.college{k3nSyrPXYQs5_3OUtI0gVUT2HpT.QXxMDO0wCNwAzNzEzW}
+```
+
+### New learnings
+
+I learnt how to make a directory.
+
+### References
+
+No reference used
+**********
+
+
+## Findings files
+
+Using find command to find the flag.
+
+
 
 
 
