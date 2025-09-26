@@ -121,7 +121,7 @@ No reference used
 Finding the flag by comparing two files.
 
 ### Solve
-**Flag** ``
+**Flag** `pwn.college{44bRHZbzwNgDz1Ok3DzBy1WZL6p.01MwMDOxwCNwAzNzEzW}`
 
 First used cat command to read the two files. Then using diff to compare them and find out the flag.
 
@@ -342,6 +342,61 @@ I learnt about using diff command to compare two similar files.
 
 No references used.
 **********
+
+## listing files
+
+Using ls to find files in a directory.
+
+### Solve
+**Flag** `pwn.college{gHHm0oL33-HR6h1Kzc_aGCIp0J_.QX4IDO0wCNwAzNzEzW}`
+
+I used the ls command followed by the challenge directory to look at all the files in the directory. Then i executed the the run file that was renamed something else using absolute path.
+
+```bash
+hacker@commands~listing-files:~$ /challenge/583-renamed-run-17426
+Yahaha, you found me! Here is your flag:
+pwn.college{gHHm0oL33-HR6h1Kzc_aGCIp0J_.QX4IDO0wCNwAzNzEzW}
+```
+### New learnings
+
+I learnt how to list the files under a directory.
+
+### References
+
+No reference used.
+*********
+
+## touching files
+
+Using touch command to create new files.
+
+### Solve
+**Flag** `pwn.college{80ZIArSMxqkYI8vgWzTn2EGaEEP.QXwMDO0wCNwAzNzEzW}`
+
+I used the touch command to create two files in the tmp directory. Then used the absolute path to find the flag.
+
+```bash
+
+hacker@commands~touching-files:~$ cd /tmp
+hacker@commands~touching-files:/tmp$ touch pwn
+hacker@commands~touching-files:/tmp$ touch college
+hacker@commands~touching-files:~$ cd /tmp
+hacker@commands~touching-files:/tmp$ /challenge/run
+Success! Here is your flag:
+pwn.college{80ZIArSMxqkYI8vgWzTn2EGaEEP.QXwMDO0wCNwAzNzEzW}
+
+```
+
+### Neew learnings
+
+I learnt how to create files using the touch command.
+
+### References
+
+No reference used
+**********
+
+
 
 
 
