@@ -396,6 +396,36 @@ I learnt how to create files using the touch command.
 No reference used
 **********
 
+## Removing Files
+
+Removing files using rm command.
+
+### Solve
+**Flag** `pwn.college{kDf1MahUWDPHugNvXwT4QwZKYIp.QX2kDM1wCNwAzNzEzW}`
+
+I created the delete_me file using touch. Then deleted it using rm command. Then ran the given command to get the flag.
+
+```bash
+hacker@commands~removing-files:~$ touch delete_me
+hacker@commands~removing-files:~$ ls
+a  delete_me
+hacker@commands~removing-files:~$ rm delete_me
+hacker@commands~removing-files:~$ ls
+a
+hacker@commands~removing-files:~$ /challenge/check
+Excellent removal. Here is your reward:
+pwn.college{kDf1MahUWDPHugNvXwT4QwZKYIp.QX2kDM1wCNwAzNzEzW}
+```
+
+### New learnings
+
+I learnt how to use the rm command to delete files.
+
+### References
+
+No refernece used.
+
+
 
 
 
