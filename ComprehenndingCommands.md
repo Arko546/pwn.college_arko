@@ -353,6 +353,8 @@ Using ls to find files in a directory.
 I used the ls command followed by the challenge directory to look at all the files in the directory. Then i executed the the run file that was renamed something else using absolute path.
 
 ```bash
+hacker@commands~listing-files:~$ ls /challenge
+583-renamed-run-17426  DESCRIPTION.md
 hacker@commands~listing-files:~$ /challenge/583-renamed-run-17426
 Yahaha, you found me! Here is your flag:
 pwn.college{gHHm0oL33-HR6h1Kzc_aGCIp0J_.QX4IDO0wCNwAzNzEzW}
@@ -425,8 +427,9 @@ I learnt how to use the rm command to delete files.
 
 No refernece used.
 
+*******
 
-
+## 
 
 
 
