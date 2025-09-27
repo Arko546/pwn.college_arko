@@ -616,6 +616,104 @@ No reference used
 
 Using find command to find the flag.
 
+### Solve
+**Flag** `pwn.college{oSuK12_Pcfr30EqW3TydWYAdfmx.QXyMDO0wCNwAzNzEzW}`
+
+First I searched for files or directories named flag using the find command. Then all absolute paths that led to files containing the word flag were shown. I used the cat command to read the files and find the flag.
+
+```bash
+
+hacker@commands~finding-files:~$ find / -name flag
+find: ‘/root’: Permission denied
+find: ‘/etc/ssl/private’: Permission denied
+find: ‘/tmp/tmp.4mK6TfTSUV’: Permission denied
+/usr/local/lib/python3.8/dist-packages/pwnlib/flag
+find: ‘/var/cache/apt/archives/partial’: Permission denied
+find: ‘/var/cache/ldconfig’: Permission denied
+find: ‘/var/cache/private’: Permission denied
+find: ‘/var/log/private’: Permission denied
+find: ‘/var/log/apache2’: Permission denied
+find: ‘/var/log/mysql’: Permission denied
+find: ‘/var/lib/apt/lists/partial’: Permission denied
+find: ‘/var/lib/mysql-keyring’: Permission denied
+find: ‘/var/lib/php/sessions’: Permission denied
+find: ‘/var/lib/private’: Permission denied
+find: ‘/var/lib/mysql-files’: Permission denied
+find: ‘/var/lib/mysql’: Permission denied
+find: ‘/run/mysqld’: Permission denied
+find: ‘/run/sudo’: Permission denied
+find: ‘/proc/tty/driver’: Permission denied
+find: ‘/proc/1/task/1/fd’: Permission denied
+find: ‘/proc/1/task/1/fdinfo’: Permission denied
+find: ‘/proc/1/task/1/ns’: Permission denied
+find: ‘/proc/1/fd’: Permission denied
+find: ‘/proc/1/map_files’: Permission denied
+find: ‘/proc/1/fdinfo’: Permission denied
+find: ‘/proc/1/ns’: Permission denied
+find: ‘/proc/7/task/7/fd’: Permission denied
+find: ‘/proc/7/task/7/fdinfo’: Permission denied
+find: ‘/proc/7/task/7/ns’: Permission denied
+find: ‘/proc/7/fd’: Permission denied
+find: ‘/proc/7/map_files’: Permission denied
+find: ‘/proc/7/fdinfo’: Permission denied
+find: ‘/proc/7/ns’: Permission denied
+/opt/linux/linux-5.4/tools/build/feature/flag
+/opt/pwndbg/.venv/lib/python3.8/site-packages/pwnlib/flag
+/nix/store/7ns27apnvn4qj4q5c82x0z1lzixrz47p-radare2-5.9.8/share/radare2/5.9.8/flag
+/nix/store/5z3sjp9r463i3siif58hq5wj5jmy5m98-python3.12-pwntools-4.13.1/lib/python3.12/site-packages/pwnlib/flag
+/nix/store/5n5lp1m8gilgrsriv1f2z0jdjk50ypcn-rizin-0.7.3/share/rizin/flag
+/nix/store/h88mxp2mbgyj06vypwmqpy05idhwimnp-python3.13-pwntools-4.14.1/lib/python3.13/site-packages/pwnlib/flag
+/nix/store/s8b49lb0pqwvw0c6kgjbxdwxcv2bp0x4-radare2-5.9.8/share/radare2/5.9.8/flag
+/nix/store/bnlabj2vsbljhp597ir29l51nrqhm89w-rizin-0.7.4/share/rizin/flag
+/nix/store/1hyxipvwpdpcxw90l5pq1nvd6s6jdi5m-python3.12-pwntools-4.14.1/lib/python3.12/site-packages/pwnlib/flag
+/nix/store/5qz6hgb1qzpvjrsw20wyiylx5zw8b9bk-pwntools-4.14.0/lib/python3.13/site-packages/pwnlib/flag
+hacker@commands~finding-files:~$ cat /usr/local/lib/python3.8/dist-packages/pwnlib/flag
+cat: /usr/local/lib/python3.8/dist-packages/pwnlib/flag: Is a directory
+hacker@commands~finding-files:~$ cat /opt/linux/linux-5.4/tools/build/feature/flag
+pwn.college{oSuK12_Pcfr30EqW3TydWYAdfmx.QXyMDO0wCNwAzNzEzW}
+```
+
+### New learnings
+
+I learnt how to search for files with a particular name using he find command.
+
+### References 
+
+No reference used.
+*********
+
+## Linking files
+
+Using ln function to link files
+
+### Solve
+**Flag:** 'pwn.college{EKWD4k5KE1sWd82pC7JSxvjhl_P.QX5ETN1wCNwAzNzEzW}`
+
+I first linked the flag to to /not-the-flag file. Then the /challenge/catflag is programmed to read the /not-the-flag file so i ran it and got the flag.
+
+``` bash
+hacker@commands~linking-files:~$ ln -s /flag /home/hacker/not-the-flag
+hacker@commands~linking-files:~$ /challgenge/catflag /home/hacker/not-the-flag
+bash: /challgenge/catflag: No such file or directory
+hacker@commands~linking-files:~$ /challenge/catflag /home/hacker/not-the-fla
+g
+About to read out the /home/hacker/not-the-flag file!
+pwn.college{EKWD4k5KE1sWd82pC7JSxvjhl_P.QX5ETN1wCNwAzNzEzW}
+```
+
+### New learnings
+
+I learnt how to link files using the the ln and ln -s. I also learnt about hard and soft links.
+
+### Refernces 
+No reference used.
+
+*********
+
+
+
+
+
 
 
 
