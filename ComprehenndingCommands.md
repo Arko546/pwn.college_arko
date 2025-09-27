@@ -687,7 +687,7 @@ No reference used.
 Using ln function to link files
 
 ### Solve
-**Flag:** 'pwn.college{EKWD4k5KE1sWd82pC7JSxvjhl_P.QX5ETN1wCNwAzNzEzW}`
+**Flag:** `pwn.college{EKWD4k5KE1sWd82pC7JSxvjhl_P.QX5ETN1wCNwAzNzEzW}`
 
 I first linked the flag to to /not-the-flag file. Then the /challenge/catflag is programmed to read the /not-the-flag file so i ran it and got the flag.
 
