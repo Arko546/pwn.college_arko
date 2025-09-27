@@ -163,7 +163,7 @@ No refesnce used
  Learning about builtins in Help
 
  ### Solve 
- **Flag:** `
+ **Flag:** `pwn.college{MjiKsy2pLX1PySDV5GvZvQiVmEz.QX0ETO0wCNwAzNzEzW}`
 
  I first used help to see all the builtins. Then i used the challenge builtin with help to see whats in it. The i followed the instruction to get the flag.
 
