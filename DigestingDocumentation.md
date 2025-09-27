@@ -24,3 +24,12 @@ I got a better understanding about using commands and arguments.
 No reference used
 **********
 
+## Learning Complex Usage
+
+Writing an argument in an argument
+
+### Solve
+**Flag:**
+
+The /challenge/challenge is a program that allows us to print arbitary files. Using this I used the --printfile argument 
+
