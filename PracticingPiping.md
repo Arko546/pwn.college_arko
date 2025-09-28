@@ -1,4 +1,4 @@
-# Preacticing Piping
+# Practicing Piping
 
 ## Redirecting output
 
@@ -332,6 +332,87 @@ I learn how to intercept pipe using tee command and store it in a file for debug
 ### References
 **************
 
+## Process substitution for input
+
+Learning to use process substitution.
+
+### Solve
+**Flag:** `pwn.college{YR8B5EWLWA68lTgZsuiuLz_9orj.0lNwMDOxwCNwAzNzEzW}`
+
+I used process substitution to create temp files for both the directories outputs and then wrote diff command before them to find the flag.
+
+```bash
+hacker@piping~process-substitution-for-input:~$ diff <(/challenge/print_decoys) <(/challenge/print_decoys_and_flag)
+27a28
+> pwn.college{YR8B5EWLWA68lTgZsuiuLz_9orj.0lNwMDOxwCNwAzNzEzW}
+```
+
+### New learnings
+
+I learned how to find difference between outputs of two directories using process substitution.
+
+### References
+**************
+
+## Writing to multiple programs
+
+Using the process substitution for multiple directories.
+
+### Solve
+**Flag:** `pwn.college{UGFYl2WaDUs1tUsKdKDIFF_xMGA.QXwgDN1wCNwAzNzEzW}`
+
+I copied the output of the /challenge/hack command as input to the /challenge/the and /challenge/planet directories. This then used the output of the first part as input for the other two and gave me the flag.
+
+```bash
+hacker@piping~writing-to-multiple-programs:~$ /challenge/hack | tee >(/challenge/the) >(/challenge/planet)
+This secret data must directly and simultaneously make it to /challenge/the and
+/challenge/planet. Don't try to copy-paste it; it changes too fast.
+55161761940762289
+Congratulations, you have duplicated data into the input of two programs! Here
+is your flag:
+pwn.college{UGFYl2WaDUs1tUsKdKDIFF_xMGA.QXwgDN1wCNwAzNzEzW}
+```
+
+### New learnings
+
+I learnt how to use process substitution to subtitute and output of a command to various directories as input.
+
+### References
+No refernces used
+
+## Split piping stderr and stdout
+
+Redirecting the stderr and stdout into two diffferent programs using piping.
+
+### Solve
+**Flag:** `
+I redirected the stderr to the /challenge/the command and stdout to the /challlenge/planet and connected them by pipe.
+
+```bash
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack 2> >(/challenge/the) | (/challenge/planet)
+Congratulations, you have learned a redirection technique that even experts
+struggle with! Here is your flag:
+pwn.college{sljbCBaw4tuPPEYOj7ORgL1RWw8.QXxQDM2wCNwAzNzEzW}
+```
+
+### New learnings
+
+I learnt how to redirect the stderr and stdout of a command to two seperate commands using piping.
+
+### References
+**********
+
+## Named pipes
+
+Making a named pipe and running a program through it.
+
+### Solve
+**Flag:** `pwn.college{Ebg4dl4f4g2hd0upSkVayiB099a.01MzMDOxwCNwAzNzEzW}`
+
+First I made a FIFO file. Then I redirected the output to the FIFO file. This is the write part of the program. To run through the pipe it also needs the reading part. In a new terminal I will read the FIFO file. This will give me the flag in the other terminal.
+
+Terminal 1
+```bash
 
 
 
