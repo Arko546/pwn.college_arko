@@ -182,5 +182,16 @@ I learnt about autocompleting with the tab key.
 No reference used.
 **************
 
+## Multiple options for tab completion
+
+Finding the file using flag when multiple have same initials.
+
+### Solve
+**Flag:** `pwn.college{0kH-3GelmHc2qyF_o1A_5WMtSNK.0lN0EzNxwCNwAzNzEzW}`
+
+I first wrote the given path and then used tab to circle to pwn. Then on pressing tab again I got a list of files with the pwn as the initials.
+
+```bash
+
 
 
