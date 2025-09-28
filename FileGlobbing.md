@@ -192,6 +192,43 @@ Finding the file using flag when multiple have same initials.
 I first wrote the given path and then used tab to circle to pwn. Then on pressing tab again I got a list of files with the pwn as the initials.
 
 ```bash
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwn
+pwn                    pwn-the-planet         pwncollege-flag        pwncollege-flyswatter
+pwn-college            pwncollege-family      pwncollege-flamingo    pwncollege-hacking
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-flag
+pwn.college{0kH-3GelmHc2qyF_o1A_5WMtSNK.0lN0EzNxwCNwAzNzEzW}
+```
 
+### New learnings
+
+I learnt how to access multiple files with the same initials.
+
+### References
+
+No reference used.
+*************
+
+## Tab completion on commands
+
+Using tab completion to get commands
+
+### Solve
+**Flag** `pwn.college{APY_3sDFryTwcjkWob4VZxj6xG5.0VN0EzNxwCNwAzNzEzW}`
+
+First typed the initial letters of the command then pressed tab to get the rest of the command.
+
+```bash
+hacker@globbing~tab-completion-on-commands:~$ pwncollege-21822
+Correct! Here is your flag:
+pwn.college{APY_3sDFryTwcjkWob4VZxj6xG5.0VN0EzNxwCNwAzNzEzW}
+```
+
+### New learnings
+
+I learnt how to use tab completion to complete commands
+
+### Refernces
+No refernce used.
+*********
 
 
