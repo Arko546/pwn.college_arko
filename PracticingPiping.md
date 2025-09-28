@@ -241,6 +241,101 @@ I learnt how to use the pipe command.
 No refernces used.
 ***************
 
+## Grepping errors
+
+Redirecting stderr to stdout.
+
+### Solve 
+**Flag:** `pwn.college{4dX56rRIp54y3tFu9CjSeXLoPuo.QX1ATO0wCNwAzNzEzW}`
+
+I redirected the stderr to stdout using 2 >& 1. Then I piped it to the grep command which searched for the flag.
+
+```bash
+hacker@piping~grepping-errors:~$ /challenge/run 2>& 1 | grep pwn.college
+[INFO] WELCOME! This challenge makes the following asks of you:
+[INFO] - the challenge checks for a specific process at the other end of stderr : grep
+[INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
+
+[HYPE] ONWARDS TO GREATNESS!
+
+[INFO] This challenge will perform a bunch of checks.
+[INFO] If you pass these checks, you will receive the /challenge/.data.txt file.
+
+[TEST] You should have redirected my stderr to another process. Checking...
+[TEST] Performing checks on that process!
+
+[INFO] The process' executable is /nix/store/8b4vn1iyn6kqiisjvlmv67d1c0p3j6wj-gnugrep-3.11/bin/grep.
+[INFO] This might be different than expected because of symbolic links (for example, from /usr/bin/python to /usr/bin/python3 to /usr/bin/python3.8).
+[INFO] To pass the checks, the executable must be grep.
+
+[PASS] You have passed the checks on the process on the other end of my stderr!
+[PASS] Success! You have satisfied all execution requirements.
+```
+
+### New learnings
+I learnt how to redirect stderr to stdout.
+
+### Refernces
+************
+
+## Filtering with grep -v
+
+Using grep -v toh fileter out the values we dont want.
+
+### Solve
+**Flag:** `pwn.college{EXT6FbLRbuyC15yF5hpBnaYHCcl.0FOxEzNxwCNwAzNzEzW}`
+
+First I got the output of the /challenge/run and piped it to grep -v with the argument of DECOY which will give us all the lines not conataing the word DECOY in it. And this is how I got the flag.
+
+```bash
+hacker@piping~filtering-with-grep-v:~$ /challenge/run | grep -v DECOY
+pwn.college{EXT6FbLRbuyC15yF5hpBnaYHCcl.0FOxEzNxwCNwAzNzEzW}
+```
+
+### New learnings
+I learnt how to use grep -v command.
+
+### References 
+**************
+
+## Duplicating piped data with tee
+
+Using the tee command to duplicate a piped data to any number of files and itercept it for debugging.
+
+###  Solve
+**Flag:** `
+
+First I piped the output of the given directory to the other final directory and intercepted it with the tee command and stored the result in a file called output. Then I read the ouput file using cat which told me which argument to use after the initial directory. I then passed the resulting value to the final directory given using the pipe function.
+
+```bash
+hacker@piping~duplicating-piped-data-with-tee:~$ /challenge/pwn | tee output1 | /challenge/college
+Processing...
+WARNING: you are overwriting file output1 with tee's output...
+The input to 'college' does not contain the correct secret code! This code
+should be provided by the 'pwn' command. HINT: use 'tee' to intercept the
+output of 'pwn' and figure out what the code needs to be.
+hacker@piping~duplicating-piped-data-with-tee:~$ cat output1
+Usage: /challenge/pwn --secret [SECRET_ARG]
+
+SECRET_ARG should be "k5HY_ajD"
+hacker@piping~duplicating-piped-data-with-tee:~$ /challenge/pwn --secret k5H
+Y_ajD | /challenge/college
+Processing...
+Correct! Passing secret value to /challenge/college...
+Great job! Here is your flag:
+pwn.college{k5HY_ajDaT-pOiamVwKLmyXEyCK.QXxITO0wCNwAzNzEzW}
+```
+
+### New learnings
+I learn how to intercept pipe using tee command and store it in a file for debugging. 
+
+### References
+**************
+
+
+
+
+
 
 
 
