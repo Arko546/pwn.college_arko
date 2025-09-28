@@ -19,7 +19,7 @@ pwn.college{wBYwkfCKeeDbQ64ziK4EdIbsoWO.QXxIDO0wCNwAzNzEzW}
 ### New learning
 I learnt how to use * to glob.
 
-### Refernce
+### Reference
 ********
 
 ## Matching with ?
@@ -159,9 +159,28 @@ pwn.college{Ysi-uE1QtfQwABzEBk5lf0sYc-H.QX2IDO0wCNwAzNzEzW}
 I learnt about using ! .
 
 ### References
-No refererneces.
+No referneces.
 **********
 
+## Tab completion
+Using tab to finish the command
+
+### Solve
+**Flag:** `pwn.college{QLFKRSfakQImJihhNFqzk2U0TKH.0FN0EzNxwCNwAzNzEzW}`
+
+Typed the initial few characters then tab to complete the directory.
+
+```bash
+hacker@globbing~tab-completion:~$ cat /challenge/pwncollege​
+pwn.college{QLFKRSfakQImJihhNFqzk2U0TKH.0FN0EzNxwCNwAzNzEzW}
+```
+
+### New learnings
+I learnt about autocompleting with the tab key.
+
+### References
+No reference used.
+**************
 
 
 
