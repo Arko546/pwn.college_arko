@@ -53,7 +53,7 @@ No reference used.
 Learn how to use man to read manuals.
 
 ### Solve
-**Flag:** ``
+**Flag:** `pwn.college{YU-H9V3S5V1aW4AQtx277Xf8k4k.QX0EDO0wCNwAzNzEzW}`
 
 I first used the man command to read the manual for challenge. Then I found the argument for challenge that will give me the flag.
 
