@@ -238,7 +238,7 @@ I learnt how to put programs in the foreground
 Running processes directly from background
 
 ### Solve
-**Flag:**``
+**Flag:**`pwn.college{cLimDgi9Z9yYqIrwMHcc4ORCdMk.QX5QDO0wCNwAzNzEzW}`
 
 I used the & command to specifically start the program from background.
 
@@ -261,6 +261,29 @@ pwn.college{cLimDgi9Z9yYqIrwMHcc4ORCdMk.QX5QDO0wCNwAzNzEzW}
 ### New learnings
 I learnt how start a program from background.
 *************
+
+## Process exit codes
+
+Learning about process exit codes.
+
+### Solve
+**Flag:**`pwn.college{sNiWio4Sw7xwBLY09eBK2Y5n2-d.QX5YDO1wCNwAzNzEzW}`
+
+First I exited the program and then got the exit code. Then i used that code to get the flag.
+
+```bash
+hacker@processes~process-exit-codes:~$ /challenge/get-code
+Exiting with an error code!
+hacker@processes~process-exit-codes:~$ echo $?
+100
+hacker@processes~process-exit-codes:~$ /challenge/submit-code 100
+CORRECT! Here is your flag:
+pwn.college{sNiWio4Sw7xwBLY09eBK2Y5n2-d.QX5YDO1wCNwAzNzEzW}
+```
+
+## New learnings
+I learnt how to use exit and also get the exit code.
+**********
 
 
 
