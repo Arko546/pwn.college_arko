@@ -382,7 +382,7 @@ Chatgpt
 Solving a set of questions using chmod.
 
 ### Solve
-**Flag:**``
+**Flag:**`pwn.college{4KIQB2_uBXt8n1N2_ENOrML7hYu.QXzETO0wCNwAzNzEzW}`
 
 I ran the challenge and and used chmod followed by the number.
 
