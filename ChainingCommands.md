@@ -61,3 +61,50 @@ I learnt how to link two commands using ||.
 ### Referenes
 ***************
 
+
+## Your first shell script
+
+Making a shell script.
+
+### Solve
+**Flag:**``
+
+Echoed the output of the two commands into x.sh
+
+```bash
+hacker@chaining~your-first-shell-script:~$ echo -e "/challenge/pwn ; /challe
+nge/college" > x.sh
+hacker@chaining~your-first-shell-script:~$ bash x.sh
+Great job, you've written your first shell script! Here is the flag:
+pwn.college{ECjO9aqkyxo3DGuZ6_zLkyj0TGB.QXxcDO0wCNwAzNzEzW}
+```
+
+### New learnings
+I learnt how to create a shell script.
+
+### Refernces
+**************
+
+## Redirecting script output
+
+Redirectin output of a shell script.
+
+### Solve
+**Flag:**``
+
+Echoed the output of the two commands into x.sh and then piped the output into /challenge/solve
+
+```bash
+hacker@chaining~redirecting-script-output:~$ echo -e "/challenge/pwn ; /challenge/college" > x.sh
+hacker@chaining~redirecting-script-output:~$ bash x.sh | /challenge/solve
+Correct! Here is your flag:
+pwn.college{gmWRVwhsFm1D8ZFf5MyNAlmf0FO.QX4ETO0wCNwAzNzEzW}
+```
+
+### New learnings
+I learnt how to create a shell script.
+
+### Refernces
+**************
+
+
