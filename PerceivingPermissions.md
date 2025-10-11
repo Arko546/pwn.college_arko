@@ -634,6 +634,52 @@ Chatgpt
 ***********************
 
 
+## The Suid bit
+
+Using chmod u+s to give suid permission.
+
+### Solve
+**Flag:**`pwn.college{48BsX0h_Qnn37X5MZ32-vpwCpFv.QXzEjN0wCNwAzNzEzW}`
+
+First chmod u+s to give suid permission to root. 
+
+
+```bash
+hacker@permissions~the-suid-bit:~$ chmod u+s /challenge/getroot
+hacker@permissions~the-suid-bit:~$ ls -l
+total 32
+-rw-r--r-- 1 hacker hacker   4 Sep 28 09:12 COLLEGE
+-rw-r--r-- 1 hacker hacker   8 Sep 28 09:51 PWN
+-rw-r--r-- 1 root   hacker  60 Sep 26 12:52 a
+-rw-r--r-- 1 hacker hacker   0 Oct 10 04:19 college_file
+-rw-r--r-- 1 hacker hacker   0 Sep 27 22:20 foo.1x.dvi
+-rw-r--r-- 1 hacker hacker 829 Sep 28 09:40 instructions
+-rw-r--r-- 1 hacker hacker  95 Sep 28 09:40 myflag
+lrwxrwxrwx 1 hacker hacker   5 Sep 27 09:29 not-the-flag -> /flag
+-rw-r--r-- 1 root   hacker  77 Sep 28 11:05 output1
+drwxr-xr-x 1 hacker hacker   0 Oct 10 04:18 pwn_directory
+-rw-r--r-- 1 hacker hacker 437 Sep 28 09:30 the-flag
+hacker@permissions~the-suid-bit:~$ cat /not-the-flag
+cat: /not-the-flag: No such file or directory
+hacker@permissions~the-suid-bit:~$ cat /flag
+cat: /flag: Permission denied
+hacker@permissions~the-suid-bit:~$ /challenge/getroot
+SUCCESS! You have set the suid bit on this program, and it is running as root!
+Here is your shell...
+root@permissions~the-suid-bit:~# cat /flag
+pwn.college{48BsX0h_Qnn37X5MZ32-vpwCpFv.QXzEjN0wCNwAzNzEzW}
+```
+
+### New learnings
+I learnt how to use chmod u+s to give suid permission
+
+### References
+*****************
+
+
+
+
+
 
 
 
