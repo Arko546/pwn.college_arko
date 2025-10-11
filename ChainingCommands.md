@@ -107,4 +107,43 @@ I learnt how to create a shell script.
 ### Refernces
 **************
 
+## Executable shell scripts
+
+### Solve
+**Flag:** `
+
+I echoes the output into the shell scrpt. Then gave the permission to execute and read to the the user, group and others.
+
+```bash
+hacker@chaining~executable-shell-scripts:~$ echo -e "/challenge/solve" > x.s
+h
+hacker@chaining~executable-shell-scripts:~$ ls -l
+total 36
+-rw-r--r-- 1 hacker hacker   4 Sep 28 09:12 COLLEGE
+-rw-r--r-- 1 hacker hacker   8 Sep 28 09:51 PWN
+-rw-r--r-- 1 root   hacker  60 Sep 26 12:52 a
+-rw-r--r-- 1 hacker hacker   0 Oct 10 04:19 college_file
+-rw-r--r-- 1 hacker hacker   0 Sep 27 22:20 foo.1x.dvi
+-rw-r--r-- 1 hacker hacker 829 Sep 28 09:40 instructions
+-rw-r--r-- 1 hacker hacker  95 Sep 28 09:40 myflag
+lrwxrwxrwx 1 hacker hacker   5 Sep 27 09:29 not-the-flag -> /flag
+-rw-r--r-- 1 root   hacker  77 Sep 28 11:05 output1
+drwxr-xr-x 1 hacker hacker   0 Oct 10 04:18 pwn_directory
+-rw-r--r-- 1 hacker hacker 437 Sep 28 09:30 the-flag
+-rw-r--r-- 1 hacker hacker  17 Oct 11 12:11 x.sh
+hacker@chaining~executable-shell-scripts:~$ chmod u=xr, g=xr, o=xr x.sh
+chmod: invalid mode: ‘u=xr,’
+Try 'chmod --help' for more information.
+hacker@chaining~executable-shell-scripts:~$ chmod u=xr,g=xr,o=xr x.sh
+hacker@chaining~executable-shell-scripts:~$ ./x.sh
+Congratulations on your shell script execution! Your flag:
+pwn.college{kjJOZjw3Rm_wDFgGfOMr3s5Dc1v.QX0cjM1wCNwAzNzEzW}
+```
+
+### New learnings
+I learnt shell script is excutable. I caninvoke it without having to bash it.
+
+### Referncces
+******************
+
 
