@@ -41,3 +41,23 @@ I learnt how to link two commands using &&.
 ### Referenes
 ***************
 
+## Building on success
+
+Using || to choose between two commands
+
+###  Solve
+**Flag:**`pwn.college{YqSNJCWLAl5RJQrvTt9hHfuivwd.01M0MDOxwCNwAzNzEzW}`
+
+I used && to link th two commands.
+
+```bash
+hacker@chaining~handling-failure:~$ /challenge/first-failure || /challenge/s
+econd
+Nice chaining! Flag: pwn.college{YqSNJCWLAl5RJQrvTt9hHfuivwd.01M0MDOxwCNwAzNzEzW}
+```
+### New learnings
+I learnt how to link two commands using ||.
+
+### Referenes
+***************
+
